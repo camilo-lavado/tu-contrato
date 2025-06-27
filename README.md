@@ -10,27 +10,27 @@
 
 ### ✅ Fase 1: MVP Funcional (en desarrollo)
 
-* Registro/login con JWT (access + refresh token)
-* Recuperación de contraseña vía correo
-* Selección de plantilla legal
-* Formulario dinámico
-* Vista previa del contrato generado
-* Exportación en PDF con marca de agua
-* 3 plantillas: Arriendo, Prestación de servicios, NDA
+- Registro/login con JWT (access + refresh token)
+- Recuperación de contraseña vía correo
+- Selección de plantilla legal
+- Formulario dinámico
+- Vista previa del contrato generado
+- Exportación en PDF con marca de agua
+- 3 plantillas: Arriendo, Prestación de servicios, NDA
 
 ### 💳 Fase 2: MVP Monetizable
 
-* Integración con Flow\.cl / MercadoPago
-* Límites por plan (freemium, pago por uso, suscripción mensual)
-* Historial de contratos generados por usuario
-* Panel administrativo (plantillas y usuarios)
+- Integración con Flow.cl / MercadoPago
+- Límites por plan (freemium, pago por uso, suscripción mensual)
+- Historial de contratos generados por usuario
+- Panel administrativo (plantillas y usuarios)
 
 ### 🚀 Fase 3: Escalamiento
 
-* Firma electrónica avanzada (FEA)
-* Nuevas plantillas (laboral, compraventa, poderes, etc.)
-* Aplicación móvil (opcional)
-* Blog SEO y marketing legal
+- Firma electrónica avanzada (FEA)
+- Nuevas plantillas (laboral, compraventa, poderes, etc.)
+- Aplicación móvil (opcional)
+- Blog SEO y marketing legal
 
 ---
 
@@ -38,28 +38,31 @@
 
 ### Backend
 
-* NestJS
-* TypeORM + PostgreSQL
-* JWT (Access + Refresh)
-* Bcrypt
-* Nodemailer (dev), Resend (prod)
-* Class-validator
+- NestJS
+- TypeORM + PostgreSQL
+- JWT (Access + Refresh)
+- Bcrypt
+- Nodemailer (dev), Resend (prod)
+- Class-validator
 
 ### Frontend (pendiente)
 
-* Angular 16+
-* Angular Material (tema Cyan/Orange)
+- Angular 16+
+- Angular Material (tema Cyan/Orange)
 
 ---
 
 ## ⚖️ Seguridad y Buenas Prácticas
 
-* Autenticación segura con JWT + Refresh
-* Roles desde tabla `roles` (admin, user, etc.)
-* Guards por recurso y decoradores personalizados
-* Validación estricta con class-validator
-* Sanitización de entradas
-* Políticas de privacidad y eliminación de cuenta
+- Autenticación segura con JWT + Refresh
+- Roles desde tabla `roles` (admin, user, etc.)
+- Guards por recurso y decoradores personalizados
+- Validación estricta con class-validator
+- Sanitización de entradas
+- Políticas de privacidad y eliminación de cuenta
+- Helmet y CORS global configurados
+- Throttling habilitado con `@nestjs/throttler`
+- Swagger solo disponible en desarrollo
 
 ---
 
@@ -83,16 +86,30 @@ pnpm install
 Crear un archivo `.env` en la raíz del proyecto con el siguiente contenido:
 
 ```env
+# 🌐 Entorno
+NODE_ENV=development
 PORT=3000
-DATABASE_URL=postgres://user:pass@localhost:5432/tucontrato
-ACCESS_TOKEN_SECRET=supersecret
-REFRESH_TOKEN_SECRET=refreshsecret
+DATABASE_SSL=false
+
+# 🗄️ Bases de datos
+PROD_DATABASE_URL=postgresql://user:password@host/tu_contrato_db?sslmode=require&channel_binding=require
+DATABASE_URL=postgres://postgres:password@localhost:5432/tucontrato_dev
+TEST_DATABASE_URL=postgres://postgres:password@localhost:5432/tucontrato_test
+
+# 🔐 Autenticación
+ACCESS_TOKEN_SECRET=supersecretcontractpassword
+REFRESH_TOKEN_SECRET=refreshsecretkeykcontract
+ACCESS_TOKEN_ALGORITHM=HS256
 ACCESS_TOKEN_EXPIRATION=15m
 REFRESH_TOKEN_EXPIRATION=7d
+
+# 📬 Correo
 EMAIL_HOST=smtp.mailtrap.io
 EMAIL_PORT=2525
 EMAIL_USER=mailtrap_user
 EMAIL_PASS=mailtrap_pass
+
+# 🌍 Frontend
 FRONTEND_URL=http://localhost:4200
 ```
 
@@ -135,30 +152,34 @@ src/
 
 ## 🏠 Hosting sugerido (para MVP)
 
-| Servicio                | Costo              |
-| ----------------------- | ------------------ |
-| **Render** (backend)    | \$0 CLP            |
-| **Vercel** (frontend)   | \$0 CLP            |
-| **NeonDB** (PostgreSQL) | \$0 CLP            |
-| **Dominio .cl**         | \~\$12.000 CLP/año |
-| **Mailtrap** (dev)      | Gratis             |
+| Servicio                | Costo            |
+| ----------------------- | ---------------- |
+| **Render** (backend)    | $0 CLP           |
+| **Vercel** (frontend)   | $0 CLP           |
+| **NeonDB** (PostgreSQL) | $0 CLP           |
+| **Dominio .cl**         | ~$12.000 CLP/año |
+| **Mailtrap** (dev)      | Gratis           |
 
 ---
 
 ## 📎 Nombre y Branding
 
-* Nombre: **TuContrato.cl**
-* Dominio verificado: libre
-* Marca sin conflicto detectado
-* Redes disponibles
-* Logo generado con estilo moderno y formal
+- Nombre: **TuContrato.cl**
+- Dominio verificado: libre
+- Marca sin conflicto detectado
+- Redes disponibles
+- Logo generado con estilo moderno y formal
 
 ---
 
 ## ✅ Estado Actual
 
-* Modelo de base de datos completo con soporte para pagos, auditoría y perfiles de usuario
-* Script SQL y DBML listos
-* README actualizado
-* Construyendo el módulo de login y autenticación JWT
-* Usando `pnpm` como gestor de paquetes
+- Modelo de base de datos completo con soporte para pagos, auditoría y perfiles de usuario
+- Scripts listos en SQL y DBML para importar o visualizar la estructura
+- Alias `@app/*` configurado y funcionando en TypeScript, Jest y editor
+- Seguridad aplicada: Helmet, CORS, throttling (`@nestjs/throttler`)
+- Swagger habilitado solo en desarrollo (`NODE_ENV !== 'production'`)
+- Husky + lint-staged funcionando: corre ESLint y Prettier antes de cada commit
+- Tests E2E configurados con Jest + entorno `.env.test`
+- Usando `pnpm` como gestor de paquetes
+- Avanzando en módulo de login con JWT (access + refresh)
