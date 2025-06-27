@@ -10,27 +10,27 @@
 
 ### ✅ Fase 1: MVP Funcional (en desarrollo)
 
-- Registro/login con JWT (access + refresh token)
-- Recuperación de contraseña vía correo
-- Selección de plantilla legal
-- Formulario dinámico
-- Vista previa del contrato generado
-- Exportación en PDF con marca de agua
-- 3 plantillas: Arriendo, Prestación de servicios, NDA
+* Registro/login con JWT (access + refresh token)
+* Recuperación de contraseña vía correo
+* Selección de plantilla legal
+* Formulario dinámico
+* Vista previa del contrato generado
+* Exportación en PDF con marca de agua
+* 3 plantillas: Arriendo, Prestación de servicios, NDA
 
 ### 💳 Fase 2: MVP Monetizable
 
-- Integración con Flow\.cl / MercadoPago
-- Límites por plan (freemium, pago por uso, suscripción mensual)
-- Historial de contratos generados por usuario
-- Panel administrativo (plantillas y usuarios)
+* Integración con Flow\.cl / MercadoPago
+* Límites por plan (freemium, pago por uso, suscripción mensual)
+* Historial de contratos generados por usuario
+* Panel administrativo (plantillas y usuarios)
 
 ### 🚀 Fase 3: Escalamiento
 
-- Firma electrónica avanzada (FEA)
-- Nuevas plantillas (laboral, compraventa, poderes, etc.)
-- Aplicación móvil (opcional)
-- Blog SEO y marketing legal
+* Firma electrónica avanzada (FEA)
+* Nuevas plantillas (laboral, compraventa, poderes, etc.)
+* Aplicación móvil (opcional)
+* Blog SEO y marketing legal
 
 ---
 
@@ -38,28 +38,28 @@
 
 ### Backend
 
-- NestJS
-- TypeORM + PostgreSQL
-- JWT (Access + Refresh)
-- Bcrypt
-- Nodemailer (dev), Resend (prod)
-- Class-validator
+* NestJS
+* TypeORM + PostgreSQL
+* JWT (Access + Refresh)
+* Bcrypt
+* Nodemailer (dev), Resend (prod)
+* Class-validator
 
 ### Frontend (pendiente)
 
-- Angular 16+
-- Angular Material (tema Cyan/Orange)
+* Angular 16+
+* Angular Material (tema Cyan/Orange)
 
 ---
 
 ## ⚖️ Seguridad y Buenas Prácticas
 
-- Autenticación segura con JWT + Refresh
-- Roles desde tabla `roles` (admin, user, etc.)
-- Guards por recurso y decoradores personalizados
-- Validación estricta con class-validator
-- Sanitización de entradas
-- Políticas de privacidad y eliminación de cuenta
+* Autenticación segura con JWT + Refresh
+* Roles desde tabla `roles` (admin, user, etc.)
+* Guards por recurso y decoradores personalizados
+* Validación estricta con class-validator
+* Sanitización de entradas
+* Políticas de privacidad y eliminación de cuenta
 
 ---
 
@@ -147,14 +147,18 @@ src/
 
 ## 📎 Nombre y Branding
 
-- Nombre: **TuContrato.cl**
-- Dominio verificado: libre
-- Marca sin conflicto detectado
-- Redes disponibles
-- Logo generado con estilo moderno y formal
+* Nombre: **TuContrato.cl**
+* Dominio verificado: libre
+* Marca sin conflicto detectado
+* Redes disponibles
+* Logo generado con estilo moderno y formal
 
 ---
 
 ## ✅ Estado Actual
 
-- Construyendo el login
+* Modelo de base de datos completo con soporte para pagos, auditoría y perfiles de usuario
+* Script SQL y DBML listos
+* README actualizado
+* Construyendo el módulo de login y autenticación JWT
+* Usando `pnpm` como gestor de paquetes
