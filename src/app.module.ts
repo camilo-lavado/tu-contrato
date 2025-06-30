@@ -3,6 +3,7 @@ import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ThrottlerModule, ThrottlerGuard } from '@nestjs/throttler';
 
+import { SeederModule } from '@app/seeder/seeder.module';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 // import { AuthModule } from './auth/auth.module';
@@ -68,6 +69,7 @@ const getDatabaseUrl = (): string => {
     }),
 
     RolesModule,
+    SeederModule,
 
     // Módulos funcionales
     // AuthModule,

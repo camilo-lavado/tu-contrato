@@ -2,11 +2,13 @@ import { NestFactory } from '@nestjs/core';
 import { AppModule } from '@app/app.module';
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 import helmet from 'helmet';
+import { SeederService } from './seeder/seeder.service';
 
 async function bootstrap() {
   // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
   const app = await NestFactory.create(AppModule);
-
+  const seeder = app.get(SeederService);
+  await seeder.seed();
   app.use(helmet());
   app.enableCors();
 
